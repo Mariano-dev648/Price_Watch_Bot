@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Watch Bot</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0f0f1a;
+            color: #eee;
+            padding: 30px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: #00d4ff;
+            letter-spacing: 2px;
+        }
+        header p {
+            color: #888;
+            margin-top: 8px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+        }
+        .card {
+            background: #1a1a2e;
+            border-radius: 16px;
+            padding: 28px;
+            width: 460px;
+            border: 1px solid #2a2a4a;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        .card h2 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            color: #ccc;
+        }
+        .preco {
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+        .alvo {
+            color: #888;
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+        }
+        .status {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+        th {
+            background: #0f0f1a;
+            padding: 8px;
+            text-align: left;
+            color: #00d4ff;
+            border-bottom: 1px solid #2a2a4a;
+        }
+        td {
+            padding: 8px;
+            border-bottom: 1px solid #1e1e3a;
+            color: #ccc;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #444;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1> Price Watch Bot</h1>
+        <p>Última atualização: 13/03/2026 02:30</p>
+    </header>
+    <div class="container">
+        
+        <div class="card">
+            <h2>A Light in the Attic</h2>
+            <div class="preco" style="color: #e74c3c">£51.77</div>
+            <div class="alvo">Preço alvo: £50.0</div>
+            <div class="status" style="background: #e74c3c">📈 Acima do alvo</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Preço</th>
+                        <th>Alvo</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+            <tr>
+                <td>13/03/2026 02:26</td>
+                <td>£51.77</td>
+                <td>£50.0</td>
+                <td style="color: red">
+                    📈 Normal
+                </td>
+            </tr>
+            <tr>
+                <td>13/03/2026 02:30</td>
+                <td>£51.77</td>
+                <td>£50.0</td>
+                <td style="color: red">
+                    📈 Normal
+                </td>
+            </tr></tbody>
+            </table>
+        </div>
+        <div class="card">
+            <h2>Tipping the Velvet</h2>
+            <div class="preco" style="color: #e74c3c">£53.74</div>
+            <div class="alvo">Preço alvo: £50.0</div>
+            <div class="status" style="background: #e74c3c">📈 Acima do alvo</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Preço</th>
+                        <th>Alvo</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+            <tr>
+                <td>13/03/2026 02:26</td>
+                <td>£53.74</td>
+                <td>£50.0</td>
+                <td style="color: red">
+                    📈 Normal
+                </td>
+            </tr>
+            <tr>
+                <td>13/03/2026 02:30</td>
+                <td>£53.74</td>
+                <td>£50.0</td>
+                <td style="color: red">
+                    📈 Normal
+                </td>
+            </tr></tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <p>Gerado automaticamente por Price Watch Bot • Python + BeautifulSoup</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "A Light in the Attic": [
+    {
+      "data": "13/03/2026 02:26",
+      "preco": 51.77,
+      "alvo": 50.0,
+      "alerta": false
+    },
+    {
+      "data": "13/03/2026 02:30",
+      "preco": 51.77,
+      "alvo": 50.0,
+      "alerta": false
+    }
+  ],
+  "Tipping the Velvet": [
+    {
+      "data": "13/03/2026 02:26",
+      "preco": 53.74,
+      "alvo": 50.0,
+      "alerta": false
+    },
+    {
+      "data": "13/03/2026 02:30",
+      "preco": 53.74,
+      "alvo": 50.0,
+      "alerta": false
+    }
+  ]
+}

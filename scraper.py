@@ -14,12 +14,13 @@ def buscar_preco(url):
         resposta = requests.get(url, headers=HEADERS, timeout=10)
         soup = BeautifulSoup(resposta.text, "html.parser")
 
-        # Seletor de preço da Amazon Brasil
-        preco_elemento = soup.select_one("span.a-price-whole")
+        # Seletor para o site books.toscrape.com
+        preco_elemento = soup.select_one("p.price_color")
 
         if preco_elemento:
             preco_texto = preco_elemento.text.strip()
-            preco_texto = preco_texto.replace(".", "").replace(",", ".")
+            # Remove símbolo £ e converte para float
+            preco_texto = preco_texto.replace("£", "").replace("Â", "").strip()
             return float(preco_texto)
         else:
             return None
