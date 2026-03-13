@@ -11,6 +11,30 @@
       "preco": 51.77,
       "alvo": 50.0,
       "alerta": false
+    },
+    {
+      "data": "13/03/2026 02:38",
+      "preco": 51.77,
+      "alvo": 50.0,
+      "alerta": false
+    },
+    {
+      "data": "13/03/2026 02:51",
+      "preco": 51.77,
+      "alvo": 99.0,
+      "alerta": true
+    },
+    {
+      "data": "13/03/2026 02:55",
+      "preco": 51.77,
+      "alvo": 99.0,
+      "alerta": true
+    },
+    {
+      "data": "13/03/2026 03:03",
+      "preco": 51.77,
+      "alvo": 99.0,
+      "alerta": true
     }
   ],
   "Tipping the Velvet": [
@@ -25,6 +49,30 @@
       "preco": 53.74,
       "alvo": 50.0,
       "alerta": false
+    },
+    {
+      "data": "13/03/2026 02:38",
+      "preco": 53.74,
+      "alvo": 50.0,
+      "alerta": false
+    },
+    {
+      "data": "13/03/2026 02:51",
+      "preco": 53.74,
+      "alvo": 99.0,
+      "alerta": true
+    },
+    {
+      "data": "13/03/2026 02:55",
+      "preco": 53.74,
+      "alvo": 99.0,
+      "alerta": true
+    },
+    {
+      "data": "13/03/2026 03:03",
+      "preco": 53.74,
+      "alvo": 99.0,
+      "alerta": true
     }
   ]
 }
