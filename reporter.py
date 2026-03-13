@@ -5,7 +5,9 @@ def gerar_relatorio(historico, config):
     produtos = config["produtos"]
 
     cards = ""
-    for produto in produtos:
+    graficos_js = ""
+
+    for i, produto in enumerate(produtos):
         nome = produto["nome"]
         alvo = produto["preco_alvo"]
         registros = historico.get(nome, [])
@@ -32,12 +34,66 @@ def gerar_relatorio(historico, config):
                 </td>
             </tr>"""
 
+        # Dados para o gráfico
+        labels = [r['data'] for r in registros]
+        precos = [r['preco'] for r in registros]
+        alvos = [r['alvo'] for r in registros]
+        chart_id = f"chart_{i}"
+
+        graficos_js += f"""
+        new Chart(document.getElementById('{chart_id}'), {{
+            type: 'line',
+            data: {{
+                labels: {labels},
+                datasets: [
+                    {{
+                        label: 'Preço',
+                        data: {precos},
+                        borderColor: '#00d4ff',
+                        backgroundColor: 'rgba(0,212,255,0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: 5,
+                        pointBackgroundColor: '#00d4ff'
+                    }},
+                    {{
+                        label: 'Alvo',
+                        data: {alvos},
+                        borderColor: '#2ecc71',
+                        borderDash: [6, 3],
+                        pointRadius: 0,
+                        tension: 0
+                    }}
+                ]
+            }},
+            options: {{
+                responsive: true,
+                plugins: {{
+                    legend: {{
+                        labels: {{ color: '#ccc' }}
+                    }}
+                }},
+                scales: {{
+                    x: {{
+                        ticks: {{ color: '#888', maxRotation: 45 }},
+                        grid: {{ color: '#2a2a4a' }}
+                    }},
+                    y: {{
+                        ticks: {{ color: '#888' }},
+                        grid: {{ color: '#2a2a4a' }}
+                    }}
+                }}
+            }}
+        }});
+        """
+
         cards += f"""
         <div class="card">
             <h2>{nome}</h2>
             <div class="preco" style="color: {cor}">£{preco_atual}</div>
             <div class="alvo">Preço alvo: £{alvo}</div>
             <div class="status" style="background: {cor}">{status}</div>
+            <canvas id="{chart_id}" style="margin: 20px 0;"></canvas>
             <table>
                 <thead>
                     <tr>
@@ -57,6 +113,7 @@ def gerar_relatorio(historico, config):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Price Watch Bot</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         body {{
@@ -88,7 +145,7 @@ def gerar_relatorio(historico, config):
             background: #1a1a2e;
             border-radius: 16px;
             padding: 28px;
-            width: 460px;
+            width: 520px;
             border: 1px solid #2a2a4a;
             box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         }}
@@ -152,10 +209,13 @@ def gerar_relatorio(historico, config):
     <footer>
         <p>Gerado automaticamente por Price Watch Bot • Python + BeautifulSoup</p>
     </footer>
+    <script>
+        {graficos_js}
+    </script>
 </body>
 </html>"""
 
     with open("relatorio.html", "w", encoding="utf-8") as f:
         f.write(html)
 
-    print(" ✅ Relatório HTML gerado: relatorio.html")
+    print("Relatório HTML gerado: relatorio.html")

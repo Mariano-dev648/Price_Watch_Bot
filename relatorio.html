@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Price Watch Bot</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -35,7 +36,7 @@
             background: #1a1a2e;
             border-radius: 16px;
             padding: 28px;
-            width: 460px;
+            width: 520px;
             border: 1px solid #2a2a4a;
             box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         }
@@ -90,8 +91,8 @@
 </head>
 <body>
     <header>
-        <h1> Price Watch Bot</h1>
-        <p>Última atualização: 13/03/2026 03:04</p>
+        <h1>🤖 Price Watch Bot</h1>
+        <p>Última atualização: 13/03/2026 03:08</p>
     </header>
     <div class="container">
         
@@ -100,6 +101,7 @@
             <div class="preco" style="color: #2ecc71">£51.77</div>
             <div class="alvo">Preço alvo: £99.0</div>
             <div class="status" style="background: #2ecc71">✅ Abaixo do alvo!</div>
+            <canvas id="chart_0" style="margin: 20px 0;"></canvas>
             <table>
                 <thead>
                     <tr>
@@ -110,14 +112,6 @@
                     </tr>
                 </thead>
                 <tbody>
-            <tr>
-                <td>13/03/2026 02:30</td>
-                <td>£51.77</td>
-                <td>£50.0</td>
-                <td style="color: red">
-                    📈 Normal
-                </td>
-            </tr>
             <tr>
                 <td>13/03/2026 02:38</td>
                 <td>£51.77</td>
@@ -144,6 +138,14 @@
             </tr>
             <tr>
                 <td>13/03/2026 03:03</td>
+                <td>£51.77</td>
+                <td>£99.0</td>
+                <td style="color: green">
+                    ✅ Alerta
+                </td>
+            </tr>
+            <tr>
+                <td>13/03/2026 03:08</td>
                 <td>£51.77</td>
                 <td>£99.0</td>
                 <td style="color: green">
@@ -157,6 +159,7 @@
             <div class="preco" style="color: #2ecc71">£53.74</div>
             <div class="alvo">Preço alvo: £99.0</div>
             <div class="status" style="background: #2ecc71">✅ Abaixo do alvo!</div>
+            <canvas id="chart_1" style="margin: 20px 0;"></canvas>
             <table>
                 <thead>
                     <tr>
@@ -167,14 +170,6 @@
                     </tr>
                 </thead>
                 <tbody>
-            <tr>
-                <td>13/03/2026 02:30</td>
-                <td>£53.74</td>
-                <td>£50.0</td>
-                <td style="color: red">
-                    📈 Normal
-                </td>
-            </tr>
             <tr>
                 <td>13/03/2026 02:38</td>
                 <td>£53.74</td>
@@ -206,6 +201,14 @@
                 <td style="color: green">
                     ✅ Alerta
                 </td>
+            </tr>
+            <tr>
+                <td>13/03/2026 03:08</td>
+                <td>£53.74</td>
+                <td>£99.0</td>
+                <td style="color: green">
+                    ✅ Alerta
+                </td>
             </tr></tbody>
             </table>
         </div>
@@ -213,5 +216,98 @@
     <footer>
         <p>Gerado automaticamente por Price Watch Bot • Python + BeautifulSoup</p>
     </footer>
+    <script>
+        
+        new Chart(document.getElementById('chart_0'), {
+            type: 'line',
+            data: {
+                labels: ['13/03/2026 02:26', '13/03/2026 02:30', '13/03/2026 02:38', '13/03/2026 02:51', '13/03/2026 02:55', '13/03/2026 03:03', '13/03/2026 03:08'],
+                datasets: [
+                    {
+                        label: 'Preço',
+                        data: [51.77, 51.77, 51.77, 51.77, 51.77, 51.77, 51.77],
+                        borderColor: '#00d4ff',
+                        backgroundColor: 'rgba(0,212,255,0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: 5,
+                        pointBackgroundColor: '#00d4ff'
+                    },
+                    {
+                        label: 'Alvo',
+                        data: [50.0, 50.0, 50.0, 99.0, 99.0, 99.0, 99.0],
+                        borderColor: '#2ecc71',
+                        borderDash: [6, 3],
+                        pointRadius: 0,
+                        tension: 0
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        labels: { color: '#ccc' }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#888', maxRotation: 45 },
+                        grid: { color: '#2a2a4a' }
+                    },
+                    y: {
+                        ticks: { color: '#888' },
+                        grid: { color: '#2a2a4a' }
+                    }
+                }
+            }
+        });
+        
+        new Chart(document.getElementById('chart_1'), {
+            type: 'line',
+            data: {
+                labels: ['13/03/2026 02:26', '13/03/2026 02:30', '13/03/2026 02:38', '13/03/2026 02:51', '13/03/2026 02:55', '13/03/2026 03:03', '13/03/2026 03:08'],
+                datasets: [
+                    {
+                        label: 'Preço',
+                        data: [53.74, 53.74, 53.74, 53.74, 53.74, 53.74, 53.74],
+                        borderColor: '#00d4ff',
+                        backgroundColor: 'rgba(0,212,255,0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: 5,
+                        pointBackgroundColor: '#00d4ff'
+                    },
+                    {
+                        label: 'Alvo',
+                        data: [50.0, 50.0, 50.0, 99.0, 99.0, 99.0, 99.0],
+                        borderColor: '#2ecc71',
+                        borderDash: [6, 3],
+                        pointRadius: 0,
+                        tension: 0
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        labels: { color: '#ccc' }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#888', maxRotation: 45 },
+                        grid: { color: '#2a2a4a' }
+                    },
+                    y: {
+                        ticks: { color: '#888' },
+                        grid: { color: '#2a2a4a' }
+                    }
+                }
+            }
+        });
+        
+    </script>
 </body>
 </html>

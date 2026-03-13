@@ -35,6 +35,12 @@
       "preco": 51.77,
       "alvo": 99.0,
       "alerta": true
+    },
+    {
+      "data": "13/03/2026 03:08",
+      "preco": 51.77,
+      "alvo": 99.0,
+      "alerta": true
     }
   ],
   "Tipping the Velvet": [
@@ -70,6 +76,12 @@
     },
     {
       "data": "13/03/2026 03:03",
+      "preco": 53.74,
+      "alvo": 99.0,
+      "alerta": true
+    },
+    {
+      "data": "13/03/2026 03:08",
       "preco": 53.74,
       "alvo": 99.0,
       "alerta": true
