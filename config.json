@@ -1,0 +1,9 @@
+{
+  "produtos": [
+    {
+      "nome": "Notebook Samsung Book",
+      "url": "https://www.amazon.com.br/dp/B09G9HD6PD",
+      "preco_alvo": 2500.00
+    }
+  ]
+}
